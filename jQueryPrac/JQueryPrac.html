@@ -1,0 +1,232 @@
+
+<!-- 
+<head>
+    <title>Dimensions</title>
+    <script src='jquery-3.6.0.js'></script>
+    </head>
+    <body>
+    <p>
+    <button id='getdoc'>Get document width</button> <br>
+    <button id='getwin'>Get window width</button> <br>
+    <button id='getdiv'>Get div width</button> <br>
+    <button id='getdivIn'>Get div inner width</button> <br>
+    <button id='getdivOut'>Get div outer width</button> <br>
+    <button id='getdivMargin'>Get div outer width + Margin</button> <br>
+    
+    <button id='setdiv'>Set div width to 150 pixels</button>
+    </p>
+    <div id='result' style='margin: 20px; padding: 38px; border: 5px solid #000; width:600px; height:400px; background:#def;'></div>
+
+    <script>
+        $('#getdoc').click(()=>{$('#result').text('doc width: ' + $(document).width())})
+        $('#getwin').click(()=>{$('#result').text('win width: ' + $(window).width())})
+        $('#getdiv').click(()=>{$('#result').text('div width: ' + $('#result').width())})
+        $('#getdivIn').click(()=>{$('#result').text('div inner width: ' + $('#result').innerWidth())})
+        $('#getdivOut').click(()=>{$('#result').text('div outer width: ' + $('#result').outerWidth())})
+        $('#getdivMargin').click(()=>{$('#result').text('div outer width w/ margin: ' + $('#result').outerWidth(true))})
+        
+        $('#setdiv').click(()=>{$('#result').width(150)})
+    </script>
+    </body>
+</html>
+-->
+<!--
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Modifying The DOM</title>
+        <script src='jquery-3.6.0.js'></script>
+    </head>
+    <body>
+        <h2>Example Document</h2>
+        <a href='http://google.com' title='Google'>Visit Google</a>
+        <code>
+            This is a code section
+        </code>
+        <p>
+            <button id='a'>Remove the image</button>
+            <button id='b'>Empty the quote</button>
+        </p>
+        <img id='ball' src='ball.png'>
+        <blockquote id='quote' style='border:1px dotted #444; height:20px;'>
+            test
+        </blockquote>
+        
+        <script>
+            $('a').prepend('Here is Link: ')
+            $("[href^='http']").append(" <img src='link.png'>")
+            $('code').before('<hr>').after('<hr>')
+            $('#a').click(function() { $('#ball').remove() } )
+            $('#b').click(function() { $('#quote').empty() } )
+        </script>
+    </body>
+</html>
+-->
+<!--
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Effects: Sliding</title>
+        <script src='jquery-3.6.0.js'></script>
+    </head>
+    <body>
+        <h2>Example Document</h2>
+
+        <p id='intro'>
+            <a id='link' href = 'http://google.com', title="Google">
+                this is google
+            </a> 
+        </p>
+
+        
+    <script>
+        $('#link').focus(()=>{
+            $('#link').attr({href:"http://yahoo.com", title:'now it is yahoo'})
+            $('#link').text('now it\'s yahoo')
+
+        })
+
+        
+
+    </script>
+</body>
+</html>
+-->
+<!--
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Effects: Sliding</title>
+        <script src='jquery-3.6.0.js'></script>
+    </head>
+    <body>
+        <button id='hide'>Hide</button>
+        <button id='show'>Show</button>
+        <p id='text'>Click the Hide and Show buttons</p>
+
+        <div id="p2">
+            text#1 of div
+            <span>this is span inside p</span>
+            text#2 of div
+            <p>      this is p inside div</p>
+            text#3 of div
+            <div>
+                abc
+                <div>
+                    efg
+                </div>
+            </div>
+        </div>
+        <script>
+            
+            $('#hide').click(function() { $('#text').hide('slow', 'linear') })
+            $('#show').click(function() { $('#text').show('slow', 'linear') })
+        
+
+            // innerHTML vs nextContent
+            console.log(document.getElementById("p2").innerHTML)
+            console.log(document.getElementById("p2").textContent)
+
+
+            newHTML = "<div>this is new content<div>xyz</div> and another new <span> hi hi hi </span> </div>"
+            //document.getElementById("p2").innerHTML = newHTML;
+            document.getElementById("p2").textContent = newHTML;
+
+
+            console.log(document.getElementById("p2").innerHTML)
+            console.log(document.getElementById("p2").textContent)
+
+            
+
+        </script>
+    </body>
+</html>
+-->
+<!--
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>First jQuery Example</title>
+        <script src="jquery-3.6.0.js"></script>
+    </head>
+    <body>
+        The jQuery library uses either the <code>$()</code>
+        or <code>jQuery()</code> function names. <code>jQuery()</code>
+        <p>this is another test</p>
+        <script>
+            $('code').css('border','1px solid #aaa');
+            jQuery('code').css('color','yellow');
+            jQuery('code').css('background', 'black');
+ 
+            let c = document.getElementsByTagName('code') 
+            for (let i = 0; i < c.length; i++)
+                c[i].setAttribute('style','color: white; background: blue');
+           
+        </script>
+    </body>
+</html>
+-->
+
+<!--
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="test.css">
+     
+        
+        <style>
+            @import url('test.css');
+            
+        </style>
+
+    </head>
+    <body>
+            <div >This is div</div>
+            <p id="my">This is p</p>
+            <a id="your" href="http://google.com">This is link</a>
+
+            <div style="border: 1px solid green;">This is div</div>
+            <span style="border: 1px solid green;">This is span</span>
+    </body>
+</html>
+-->
+<!--
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Transitioning on hover</title>
+        <style>
+            #square {
+                position :absolute;
+                top :50px;
+                left :50px;
+                width :100px;
+                height :100px;
+                padding :2px;
+                text-align :center;
+                border-width :1px;
+                border-style :solid;
+                background :orange;
+                
+                transition :all .8s ease-in-out;
+            }
+
+            #square:hover {
+                background :yellow;
+                transform :rotate(180deg);
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id='square'>
+        Square shape<br>
+        created using<br>
+        a simple div<br>
+        element with<br>
+        a 1px border
+        </div>
+    </body>
+</html>
+
+-->

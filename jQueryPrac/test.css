@@ -1,0 +1,10 @@
+
+
+ #your, p, div {color:crimson; background:yellow;}
+
+ #my:hover{
+     background:blue;
+     color:white;
+}
+
+div:first-letter{ color:blue; background:green;}
